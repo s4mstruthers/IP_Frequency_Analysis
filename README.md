@@ -1,4 +1,4 @@
-- Extra files folder contains the GeoIP databases, the csv only contains a small sample of it as it has 3.6 million entries.
+- GeoIP files contain the database with the geographic locations of IP's, the csv I just put a sample of it in as its 3.6 million entries which is too large, but this allows you to visualise the data. The parquet and the mmdb are zipped but my code is designed for the parquet file.
 - get_heat_map.sh is the shellscript which I used to extract the csv out of the docker container.
 - the part-000 ... csv file is the result of running on the cluster, with the scala code provided.
 - the clusterP scala is just the same code as other scala but using HDFS to access warc and GeoIP.parquet
