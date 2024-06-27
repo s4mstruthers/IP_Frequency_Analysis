@@ -1,0 +1,5 @@
+- Extra files folder contains the GeoIP databases, the csv only contains a small sample of it as it has 3.6 million entries.
+- get_heat_map.sh is the shellscript which I used to extract the csv out of the docker container.
+- the part-000 ... csv file is the result of running on the cluster, with the scala code provided.
+- the clusterP scala is just the same code as other scala but using HDFS to access warc and GeoIP.parquet
+- visualise.py is what is used to get the resulting CSV analysise it and then produce a html file with the heatmap (heat_map.html)
