@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_56a7e92c535c9825cfed2202be7f2993 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+    <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: auto; height: auto; background-color: white; 
+                border-radius: 25px; z-index: 9999; padding: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);">
+        <h3 align="center" style="font-size:20px; margin: 0;"><b>Common Crawl Server Heatmap</b></h3>
+        <h4 align="center" style="font-size:16px; margin: 0;">Sam Struthers S1091108</h4>
+    </div>
+    
+    
+            <div class="folium-map" id="map_56a7e92c535c9825cfed2202be7f2993" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_56a7e92c535c9825cfed2202be7f2993 = L.map(
+                "map_56a7e92c535c9825cfed2202be7f2993",
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    maxBounds: [[-90, -180], [90, 180]],
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_56a7e92c535c9825cfed2202be7f2993);
+
+            
+
+        
+    
+            var tile_layer_6bfe374aac5b504ba188b0533a530094 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 10, "minZoom": 2, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_6bfe374aac5b504ba188b0533a530094.addTo(map_56a7e92c535c9825cfed2202be7f2993);
+        
+    
+            var heat_map_28ed23815c15048ba3df1f9b9d217167 = L.heatLayer(
+                [[41.3891, 2.1606, 1], [39.952, -75.1814, 1], [37.751, -97.822, 1], [38.894, -77.0365, 1], [41.5548, -87.6593, 1], [33.6637, -117.1743, 1], [33.6637, -117.1743, 1], [44.5399, -123.2807, 1], [39.9663, -74.8103, 1], [37.7642, -122.3993, 1], [43.879, -79.2638, 1], [41.387, 2.1701, 1], [48.8323, 2.4075, 1], [48.8323, 2.4075, 1], [33.3555, -86.8274, 1], [44.5363, -73.197, 1], [51.1286, 17.0574, 1], [55.7482, 37.6177, 1], [34.1483, -118.0016, 1], [33.6637, -117.1743, 1], [34.0544, -118.244, 1], [50.6974, 3.178, 1], [48.8323, 2.4075, 1], [43.3646, -2.9921, 1], [33.6637, -117.1743, 1], [50.3265, 19.1366, 1], [39.9544, -75.1657, 1], [34.1504, -117.9974, 1], [47.9531, 1.871, 1], [51.5088, -0.093, 1], [37.3313, -121.8401, 1], [34.0544, -118.244, 1], [48.9067, 2.3339, 1], [37.3891, -122.0867, 1], [37.8767, -122.2676, 1], [51.2993, 9.491, 1], [55.7386, 37.6068, 1], [37.751, -97.822, 1], [33.6637, -117.1743, 1], [40.4327, -3.701, 1], [34.728, -86.5879, 1], [46.7657, 23.5943, 1], [36.2155, -85.5426, 1], [41.5548, -87.6593, 1], [40.7123, -74.0068, 1], [39.9544, -75.1657, 1], [35.6897, 139.6895, 1], [51.5074, -0.1196, 1], [34.0544, -118.244, 1], [43.6319, -79.3716, 1]],
+                {"blur": 15, "gradient": {"0.2": "blue", "0.4": "green", "0.6": "yellow", "0.8": "orange", "1": "red"}, "maxZoom": 18, "minOpacity": 0.5, "radius": 25}
+            );
+        
+    
+            heat_map_28ed23815c15048ba3df1f9b9d217167.addTo(map_56a7e92c535c9825cfed2202be7f2993);
+        
+    
+    var color_map_8a772f9f521375d312089d239680f936 = {};
+
+    
+    color_map_8a772f9f521375d312089d239680f936.color = d3.scale.threshold()
+              .domain([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+              .range(['#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff', '#0000ffff']);
+    
+
+    color_map_8a772f9f521375d312089d239680f936.x = d3.scale.linear()
+              .domain([1.0, 1.0])
+              .range([0, 450 - 50]);
+
+    color_map_8a772f9f521375d312089d239680f936.legend = L.control({position: 'topright'});
+    color_map_8a772f9f521375d312089d239680f936.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_8a772f9f521375d312089d239680f936.legend.addTo(map_56a7e92c535c9825cfed2202be7f2993);
+
+    color_map_8a772f9f521375d312089d239680f936.xAxis = d3.svg.axis()
+        .scale(color_map_8a772f9f521375d312089d239680f936.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([1.0, 1.0, 1.0, 1.0, 1.0]);
+
+    color_map_8a772f9f521375d312089d239680f936.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_8a772f9f521375d312089d239680f936.g = color_map_8a772f9f521375d312089d239680f936.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_8a772f9f521375d312089d239680f936.g.selectAll("rect")
+        .data(color_map_8a772f9f521375d312089d239680f936.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_8a772f9f521375d312089d239680f936.x(color_map_8a772f9f521375d312089d239680f936.color.domain()[i - 1]) : color_map_8a772f9f521375d312089d239680f936.x.range()[0],
+            x1: i < color_map_8a772f9f521375d312089d239680f936.color.domain().length ? color_map_8a772f9f521375d312089d239680f936.x(color_map_8a772f9f521375d312089d239680f936.color.domain()[i]) : color_map_8a772f9f521375d312089d239680f936.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_8a772f9f521375d312089d239680f936.g.call(color_map_8a772f9f521375d312089d239680f936.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text("Server Usage");
+</script>
+</html>
